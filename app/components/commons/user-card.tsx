@@ -31,6 +31,7 @@ export default function UserCard() {
             </button>
           ))}
         </div>
+      </div>
         <div className="flex flex-col gap-3 w-full h-[172px]">
           <div className="w-full flex flex-col items-center gap-3">
             <Button className="w-full">Template SaaS - Compre Agora</Button>
@@ -39,7 +40,6 @@ export default function UserCard() {
             </button>
           </div>
         </div>
-      </div>
     </div>
   );
 }
