@@ -10,7 +10,7 @@ export default function ProjectCard({
 }: {
   project?: ProjectData; // Mark as optional
   isOwner: boolean;
-  img: string;
+  img?: string;
 }) {
   // Handle undefined project
   if (!project) {
