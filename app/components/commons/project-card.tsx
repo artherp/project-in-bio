@@ -2,7 +2,7 @@
 
 import { ProjectData } from "@/app/server/get-profile-data";
 import Link from "next/link";
-
+import { formatUrl } from "@/app/lib/utils";
 export default function ProjectCard({
   project,
   isOwner,
@@ -28,9 +28,7 @@ export default function ProjectCard({
 
   // Safely access projectUrl with optional chaining and default
   const projectUrl = project.projectUrl ?? "";
-  const formattedUrl = projectUrl.startsWith("http")
-    ? projectUrl
-    : `https://${projectUrl}`;
+  const formattedUrl = formatUrl(projectUrl);
 
   function handleClick() {
     console.log("clicked"); // TODO: implement analytics
