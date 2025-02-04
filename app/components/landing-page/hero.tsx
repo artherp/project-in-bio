@@ -3,9 +3,8 @@ import TotalVisits from "../commons/total-visits";
 import UserCard from "../commons/user-card/user-card";
 import Button from "../ui/button";
 import TextInput from "../ui/text-input";
-import { ProfileData } from "@/app/server/get-profile-data";
 
-export default function Hero({ profileData }: { profileData: ProfileData }) {
+export default function Hero() {
   return (
     <div className="flex h-screen">
       <div className="w-full flex flex-col gap-2 mt-[35vh]">
@@ -26,15 +25,15 @@ export default function Hero({ profileData }: { profileData: ProfileData }) {
 
       <div className="w-full flex items-center justify-center bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)]">
         <div className="relative">
-          <UserCard profileData={profileData} />
+          <UserCard />
           <div className="absolute -bottom-[7%] -right-[45%]">
-            <TotalVisits />
+            <TotalVisits totalVisits={12342}/>
           </div>
           <div className="absolute top-[20%] -left-[45%] -z-10">
-            <ProjectCard isOwner={false} img="/project-preview.jpg" />
+            <ProjectCard />
           </div>
           <div className="absolute -top-[5%] -left-[55%] -z-10">
-            <ProjectCard isOwner={false} img="/project-preview.jpg" />
+            <ProjectCard />
           </div>
         </div>
       </div>

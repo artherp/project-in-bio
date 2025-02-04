@@ -1,18 +1,19 @@
 "use client";
-
+import { increaseProjectVisits } from "@/app/actions/increase-project-visits";
 import { ProjectData } from "@/app/server/get-profile-data";
 import Link from "next/link";
 import { formatUrl } from "@/app/lib/utils";
+import { useParams } from "next/navigation";
+
 export default function ProjectCard({
   project,
   isOwner,
   img,
 }: {
-  project?: ProjectData; // Mark as optional
-  isOwner: boolean;
+  project?: ProjectData; 
+  isOwner?: boolean;
   img?: string;
 }) {
-  // Handle undefined project
   if (!project) {
     return (
       <div className="w-[340px] h-[132px] flex gap-5 bg-background-secondary p-3 rounded-[20px] border border-transparent hover:border-border-secondary">
@@ -26,12 +27,15 @@ export default function ProjectCard({
     );
   }
 
-  // Safely access projectUrl with optional chaining and default
   const projectUrl = project.projectUrl ?? "";
   const formattedUrl = formatUrl(projectUrl);
+  const { profileId } = useParams();
 
-  function handleClick() {
-    console.log("clicked"); // TODO: implement analytics
+  async function handleClick() {
+    if (!profileId || !project?.id || isOwner) {
+      return;
+    }
+    await increaseProjectVisits(profileId as string, project.id);
   }
 
   return (
