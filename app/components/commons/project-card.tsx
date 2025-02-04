@@ -8,11 +8,11 @@ export default function ProjectCard({
   isOwner,
   img,
 }: {
-  project?: ProjectData;
+  project?: ProjectData; // Mark as optional
   isOwner: boolean;
   img: string;
 }) {
-
+  // Handle undefined project
   if (!project) {
     return (
       <div className="w-[340px] h-[132px] flex gap-5 bg-background-secondary p-3 rounded-[20px] border border-transparent hover:border-border-secondary">
