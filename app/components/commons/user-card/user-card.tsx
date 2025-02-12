@@ -1,4 +1,4 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin, Plus, Twitter } from "lucide-react";
 import EditSocialLinks from "./edit-social-links";
 import Button from "../../ui/button";
 import Link from "next/link";
@@ -15,12 +15,16 @@ export default async function UserCard({
   profileData?: ProfileData;
   isOwner?: boolean;
 }) {
+  const icons = [Github, Instagram, Linkedin, Twitter, Plus];
+
   return (
     <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white border-opacity-10 bg-[#121212] rounded-3xl text-white">
       <div className="size-48">
         <img
-          src={await getDownloadURLFromPath(profileData?.imagePath) || "/me.webp"}
-          alt="Arthur Erpen"
+          src={
+            (await getDownloadURLFromPath(profileData?.imagePath)) || "/me.webp"
+          }
+          alt="Profile image"
           className="rounded-full object-cover w-full h-full"
         />
       </div>
@@ -31,7 +35,9 @@ export default async function UserCard({
           </h3>
           {isOwner && <EditUserCard profileData={profileData} />}
         </div>
-        <p className="opacity-40">{profileData?.description || "Eu faço produtos para a Internet"}</p>
+        <p className="opacity-40">
+          {profileData?.description || "Eu faço produtos para a Internet"}
+        </p>
       </div>
       <div className="flex flex-col gap-2 w-full">
         <span className="uppercase text-xs font-medium">Links</span>
@@ -73,8 +79,18 @@ export default async function UserCard({
               <Twitter />
             </Link>
           )}
-
-          {isOwner && <EditSocialLinks />}
+          {!profileData &&
+            icons.map((Icon, index) => (
+              <button
+                key={index}
+                className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]"
+              >
+                <Icon />
+              </button>
+            ))}
+          {isOwner && (
+            <EditSocialLinks socialMedias={profileData?.socialMedias} />
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-3 w-full min-h-[172px]">
@@ -105,6 +121,11 @@ export default async function UserCard({
             >
               <Button className="w-full">{profileData.link3.title}</Button>
             </Link>
+          )}
+          {!profileData && (
+            <button className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]">
+              <Plus />
+            </button>
           )}
           {isOwner && <AddCustomLink />}
         </div>

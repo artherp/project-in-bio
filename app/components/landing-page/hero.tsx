@@ -27,13 +27,13 @@ export default function Hero() {
         <div className="relative">
           <UserCard />
           <div className="absolute -bottom-[7%] -right-[45%]">
-            <TotalVisits totalVisits={12342}/>
+            <TotalVisits totalVisits={1234}/>
           </div>
           <div className="absolute top-[20%] -left-[45%] -z-10">
-            <ProjectCard />
+            <ProjectCard img="/project-preview.jpg"/>
           </div>
           <div className="absolute -top-[5%] -left-[55%] -z-10">
-            <ProjectCard />
+            <ProjectCard img="/project-preview.jpg"/>
           </div>
         </div>
       </div>

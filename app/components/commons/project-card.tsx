@@ -9,10 +9,16 @@ export default function ProjectCard({
   project,
   isOwner,
   img,
+  name,
+  description,
+  totalVisits,
 }: {
   project?: ProjectData; 
   isOwner?: boolean;
   img?: string;
+  name?: string;
+  description?: string;
+  totalVisits?: number;
 }) {
   if (!project) {
     return (
@@ -53,7 +59,7 @@ export default function ProjectCard({
           <div className="flex flex-col">
             <span className="text-white font-bold">{project.projectName}</span>
             <span className="text-content-body text-sm">
-              {project.projectDescription}
+              { project.projectDescription}
             </span>
           </div>
         </div>
