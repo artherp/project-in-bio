@@ -1,5 +1,6 @@
-import { trialDays } from "@/app/lib/config";
+import { TRIAL_DAYS } from "@/app/lib/config";
 import Button from "../ui/button";
+
 export default function Pricing() {
   return (
     <div className="my-[150px] flex flex-col items-center gap-14">
@@ -11,7 +12,7 @@ export default function Pricing() {
           Junte-se à comunidade de criadores profissionais que já estão elevando
           sua <br />
           presença online. Teste gratuitamente por{" "}
-          <strong className="text-accent-pink">{trialDays} dias</strong>, sem
+          <strong className="text-accent-pink">{TRIAL_DAYS} dias</strong>, sem
           compromisso!
         </p>
       </div>

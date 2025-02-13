@@ -131,7 +131,7 @@ export default function EditUserCard({
             </div>
           </div>
           <div className="flex gap-4 justify-end">
-            <button onClick={() => setIsModalOpen(false)} className="font-bold text-white">Voltar</button>
+            <button className="font-bold text-white">Voltar</button>
             <Button onClick={handleSaveProfile} disabled={isSavingProfile}>
               Salvar
             </Button>

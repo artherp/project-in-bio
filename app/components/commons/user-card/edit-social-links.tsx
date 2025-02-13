@@ -5,17 +5,18 @@ import { startTransition, useState } from "react";
 import Modal from "../../ui/modal";
 import Button from "../../ui/button";
 import { useParams, useRouter } from "next/navigation";
-import createSocialLinks from "./create-social-links";
+import createSocialLinks from "@/app/actions/create-social-links";
 import TextInput from "../../ui/text-input";
+
 export default function EditSocialLinks({
-    socialMedias
+  socialMedias,
 }: {
-    socialMedias?: {
-        github: string;
-        instagram: string;
-        linkedin: string;
-        twitter: string;
-    }
+  socialMedias?: {
+    github: string;
+    instagram: string;
+    linkedin: string;
+    twitter: string;
+  };
 }) {
   const router = useRouter();
 

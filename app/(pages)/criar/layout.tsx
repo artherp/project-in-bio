@@ -3,17 +3,17 @@ import { getProfileId } from "@/app/server/get-profile-data";
 import { redirect } from "next/navigation";
 
 export default async function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    const session = await auth();
+  const session = await auth();
 
-    if (!session) redirect("/");
+  if (!session) redirect("/");
 
-    const profileId = await getProfileId(session.user?.id as string);
+  const profileId = await getProfileId(session.user?.id as string);
 
-    if (profileId) redirect(`/${profileId}`);
+  if (profileId) redirect(`/${profileId}`);
 
-    return <>{children}</>;
+  return <>{children}</>;
 }
